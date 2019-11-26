@@ -8,8 +8,8 @@ def mi_eligecarta(i, longitud):
     else:
         return i + 1
 
-def class_eligecarta(self, i, longitud):
-    return mi_eligecarta(i, longitud)
+def class_eligecarta(self, i):
+    return mi_eligecarta(i, len(self.naipes))
 
 
 class BarajaFuncionalTest(unittest.TestCase):
@@ -54,13 +54,27 @@ class BarajaObjetoTest(unittest.TestCase):
         self.assertEqual(b.naipes[10], '2c')
         self.assertEqual(b.naipes[20], '2e')
 
+        
     def test_repartir_baraja(self):
         b = baraja.Baraja()
-        
-        jugadas = b.repartir(3, 2)
+
+        jugadas = b.repartir(3,2)
         self.assertEqual(len(jugadas), 2)
-        self.assertEqual(jugada[0], ['Ao', '3o', '5o'])
-        self.assertEqual(jugada[1], ['2o', '4o', '6o'])
+        self.assertEqual(len(b.naipes), 34)
+        self.assertEqual(jugadas[0], ['Ao', '3o', '5o'])
+        self.assertEqual(jugadas[1], ['2o', '4o', '6o'])
+    
+
+    def test_repartir_baraja(self):
+        b = baraja.Baraja()        
+        jugadas = b.repartir(5,3)
+        self.assertEqual(len(jugadas),3)
+        self.assertEqual(len(b.naipes),25)
+        self.assertEqual(jugadas[0], ['Ao', '4o', '7o','Ro','3c'])
+        self.assertEqual(jugadas[1], ['2o', '5o', 'So','Ac','4c'])
+        self.assertEqual(jugadas[2], ['3o', '6o', 'Co','2c','5c'])
+
+
 
 
 
