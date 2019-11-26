@@ -65,7 +65,7 @@ class BarajaObjetoTest(unittest.TestCase):
         self.assertEqual(jugadas[1], ['2o', '4o', '6o'])
     
 
-    def test_repartir_baraja(self):
+    def test_repartir_barajaF(self):
         b = baraja.Baraja()        
         jugadas = b.repartir(5,3)
         self.assertEqual(len(jugadas),3)

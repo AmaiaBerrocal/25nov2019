@@ -58,7 +58,7 @@ class Baraja():
             
         return res
     
-    def repartir(self, mano, jugadores):
+    def repartirF(self, mano, jugadores):
         jugadas = []
         for i in range(jugadores):
             jugadas.append([])
